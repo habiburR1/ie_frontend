@@ -45,13 +45,13 @@ const IdentifyWaste: React.FC = () => {
       formData.append("uploaded_file", selectedImage);
 
       try {
-        const response = await axios.post('http://127.0.0.1:8000/api/upload/', formData, {
+        const response = await axios.post(`http://${process.env.REACT_APP_ENDPOINT}:${process.env.REACT_APP_PORT}/api/upload/`, formData, {
           headers: {
             'Content-Type': 'multipart/form-data'
           }
         });
         console.log("Response from server:", response.data);
-        setProcessedImageUrl(`http://127.0.0.1:8000${response.data.processed_file_url}`);
+        setProcessedImageUrl(`http:/${process.env.REACT_APP_ENDPOINT}:${process.env.REACT_APP_PORT}${response.data.processed_file_url}`);
         setClassificationResults(response.data.classifications || []); 
         setError(null); // Clear any previous errors
       } catch (error) {
