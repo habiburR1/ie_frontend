@@ -51,7 +51,7 @@ const IdentifyWaste: React.FC = () => {
           }
         });
         console.log("Response from server:", response.data);
-        setProcessedImageUrl(`http:/${process.env.REACT_APP_ENDPOINT}:${process.env.REACT_APP_PORT}${response.data.processed_file_url}`);
+        setProcessedImageUrl(`http://${process.env.REACT_APP_ENDPOINT}:${process.env.REACT_APP_PORT}${response.data.processed_file_url}`);
         setClassificationResults(response.data.classifications || []); 
         setError(null); // Clear any previous errors
       } catch (error) {
