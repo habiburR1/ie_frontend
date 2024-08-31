@@ -45,7 +45,7 @@ const IdentifyWaste: React.FC = () => {
       formData.append("uploaded_file", selectedImage);
 
       try {
-        const response = await axios.post(`http://${process.env.REACT_APP_ENDPOINT}:${process.env.REACT_APP_PORT}/api/upload/`, formData, {
+        const response = await axios.post(`http://${process.env.REACT_APP_ENDPOINT}:${process.env.REACT_APP_PORT}/api/classification/upload/`, formData, {
           headers: {
             'Content-Type': 'multipart/form-data'
           }
