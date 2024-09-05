@@ -13,6 +13,7 @@ const IdentifyWaste: React.FC = () => {
   const [processedImageUrl, setProcessedImageUrl] = useState<string | null>(null);
   const [classificationResults, setClassificationResults] = useState<string[]>([]);
   const [error, setError] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -41,6 +42,7 @@ const IdentifyWaste: React.FC = () => {
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     if (selectedImage) {
+      setIsLoading(true);
       const formData = new FormData();
       formData.append("uploaded_file", selectedImage);
 
@@ -57,6 +59,8 @@ const IdentifyWaste: React.FC = () => {
       } catch (error) {
         console.error("Error uploading the file:", error);
         setError("There was an issue uploading the file.");
+      } finally{
+        setIsLoading(false);
       }
     }
   };
@@ -83,7 +87,7 @@ const IdentifyWaste: React.FC = () => {
   const presentClassifications = cumulativeCounts.map(item => item.classification);
 
   return (
-    <>
+    <div className="identify-waste-page">
       <Header />
       <div className="identify-waste-container">
         <h1 className="identify-waste-title">Identify Waste</h1>
@@ -104,11 +108,16 @@ const IdentifyWaste: React.FC = () => {
               Drop your JPEG/PNG photo or click to upload
             </label>
           </div>
-          <button type="submit" className="submit-button">
-            Submit
-          </button>
+          {isLoading ? (
+            <div className="loading-container">
+              <div className="loading-spinner"></div> 
+            </div>
+          ) : (
+            <button type="submit" className="submit-button">
+              Submit
+            </button>
+          )}
           {error && <div className="error-message">{error}</div>}
-
           
           <div className="content-section" style={{ marginTop: '40px' }}>
             {previewUrl && (
@@ -182,6 +191,7 @@ const IdentifyWaste: React.FC = () => {
               </div>
             )}
           </div>
+
         </form>
       </div>
       <div className="information-container">
@@ -193,7 +203,7 @@ const IdentifyWaste: React.FC = () => {
         ))}
       </div>  
       <Footer />
-    </>
+    </div>
   );
 };
 

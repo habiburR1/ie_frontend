@@ -1,11 +1,15 @@
 import React from "react";
-//import './Footer.css';
+import './Footer.css';
 import "./GlobalStyles.css";
 
 const Footer: React.FC = () => {
   return (
-    <footer>
-      <p>&copy; 2024 My Website</p>
+    <footer className="footer">
+      <p>&copy; 2024 Green Melb. All rights reserved.</p>
+                <nav>
+                    <a href="/privacy-policy">Privacy Policy</a>
+                    <a href="/terms-of-service">Terms of Service</a>
+                </nav>
     </footer>
   );
 };

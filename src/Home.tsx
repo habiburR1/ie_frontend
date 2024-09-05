@@ -1,6 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import "./Home.css";
+// @ts-ignore
+import Header from "./Header.tsx";
 
 
 const GreenMelbLandingPage: React.FC = () => {
@@ -12,14 +14,17 @@ const GreenMelbLandingPage: React.FC = () => {
 
     return (
         <div className="landing-page">
-          <header/>
+          {/* <header/> */}
+          <Header/>
           <section className="hero-section">
                 <div className="hero-content">
+                    <div></div>
+                    <div></div>
                     <h1>Welcome to Green Melb</h1>
                     <p>Your partner in sustainable waste management for a cleaner Melbourne.</p>
-                    <button onClick={() => navigateToPage('/get-started')}>
+                    {/* <button onClick={() => navigateToPage('/get-started')}>
                         Get Started
-                    </button>
+                    </button> */}
                 </div>
       
             </section>
