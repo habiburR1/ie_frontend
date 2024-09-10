@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
@@ -14,8 +14,10 @@ const MapPage: React.FC = () => {
     const [map, setMap] = useState<mapboxgl.Map | null>(null);
     const [centres, setCentres] = useState([]);
     const [markers, setMarkers] = useState<mapboxgl.Marker[]>([]); // Store markers
-    const [selectedWasteType, setSelectedWasteType] = useState<string>('');  // Track selected waste type
+    const [selectedWasteTypes, setSelectedWasteTypes] = useState<string[]>([]);  // Track selected waste types
     const [selectedPostcode, setSelectedPostcode] = useState<string>(''); // Track selected postcode
+    const [selectedCentreId, setSelectedCentreId] = useState<number | null>(null); // Track selected centre ID for highlighting
+    const rowRefs = useRef<{ [key: number]: HTMLTableRowElement | null }>({}); // Store refs to all table rows
 
     useEffect(() => {
         // Initialize the map
@@ -58,15 +60,15 @@ const MapPage: React.FC = () => {
     useEffect(() => {
         if (map) {
             const filteredCentres = centres.filter((centre) => {
-                const matchesWasteType = selectedWasteType ? centre.waste.waste_type === selectedWasteType : true;
+                const matchesWasteTypes = selectedWasteTypes.length > 0 ? selectedWasteTypes.includes(centre.waste.waste_type) : true;
                 const matchesPostcode = selectedPostcode ? isWithin3Km(selectedPostcode, centre) : true;
-                return matchesWasteType && matchesPostcode;
+                return matchesWasteTypes && matchesPostcode;
             });
 
             updateMapMarkers(filteredCentres, map);
             updateMapCenter(map);
         }
-    }, [selectedWasteType, selectedPostcode, centres, map]);
+    }, [selectedWasteTypes, selectedPostcode, centres, map]);
 
     const updateMapMarkers = (centres: any[], mapInstance: mapboxgl.Map) => {
         // Remove existing markers from the map
@@ -83,6 +85,17 @@ const MapPage: React.FC = () => {
                     .setLngLat([longitude, latitude])
                     .setPopup(new mapboxgl.Popup({ offset: 25 }).setText(`${centre.name} (${centre.waste.waste_type})`))
                     .addTo(mapInstance);
+
+                // Add click event to highlight and scroll to the corresponding table row
+                marker.getElement().addEventListener('click', () => {
+                    setSelectedCentreId(centre.centre_id);  // Set the selected centre ID
+
+                    // Scroll to the selected table row
+                    if (rowRefs.current[centre.centre_id]) {
+                        rowRefs.current[centre.centre_id]?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                });
+
                 return marker;
             } else {
                 console.error(`Invalid coordinates for centre ${centre.name}`);
@@ -131,30 +144,128 @@ const MapPage: React.FC = () => {
         return distance;
     };
 
+    // Handle checkbox change
+    const handleCheckboxChange = (wasteType: string) => {
+        setSelectedWasteTypes((prevTypes) => {
+            if (prevTypes.includes(wasteType)) {
+                return prevTypes.filter(type => type !== wasteType);
+            } else {
+                return [...prevTypes, wasteType];
+            }
+        });
+    };
+
     return (
         <>
             <Header />
 
-            <div className="page-container">
-                {/* Filter container */}
-                <div className="filter-container">
-                    <div>
-                        <label htmlFor="waste_type">Filter by Waste Type:</label>
-                        <select
-                            name="waste_type"
-                            id="waste_type"
-                            value={selectedWasteType}
-                            onChange={(e) => setSelectedWasteType(e.target.value)}
-                        >
-                            <option value="">All</option>
-                            <option value="Batteries">Batteries</option>
-                            <option value="Electrical Appliances">Electrical Appliances</option>
-                            <option value="Mattresses">Mattresses</option>
-                            <option value="Plastic Bottles and Containers">Plastic Bottles and Containers</option>
-                            <option value="Soft Plastic">Soft Plastic</option>
-                            <option value="Clothing and Textile">Clothing and Textile</option>
-                            <option value="Paint">Paint</option>
-                        </select>
+            <div className="page-layout">
+                {/* Main content: map and table */}
+                <div className="main-content">
+                    {/* Map container */}
+                    <div className="map-container">
+                        <div id='map' className="map"></div>
+                    </div>
+
+                    {/* Scrollable table container */}
+                    <div className="scrollable-table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Centre Name</th>
+                                    <th>Address</th>
+                                    <th>Waste Type</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {centres
+                                    .filter((centre) => {
+                                        const matchesWasteTypes = selectedWasteTypes.length > 0 ? selectedWasteTypes.includes(centre.waste.waste_type) : true;
+                                        const matchesPostcode = selectedPostcode ? isWithin3Km(selectedPostcode, centre) : true;
+                                        return matchesWasteTypes && matchesPostcode;
+                                    })
+                                    .map((centre) => (
+                                        <tr key={centre.centre_id}
+                                            className={selectedCentreId === centre.centre_id ? 'highlight' : ''}  // Apply highlight class if selected
+                                            ref={el => (rowRefs.current[centre.centre_id] = el)}  // Add ref to each row
+                                        >
+                                            <td>{centre.name}</td>
+                                            <td>{centre.address}</td>
+                                            <td>{centre.waste.waste_type}</td>
+                                        </tr>
+                                    ))}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                {/* Filter container (outside the main content) */}
+                <div className="filter-sidebar">
+                    <div className="checkbox-container">
+                        <label>Filter by Waste Type:</label>
+                        <div>
+                            <input
+                                type="checkbox"
+                                id="batteries"
+                                value="Batteries"
+                                onChange={() => handleCheckboxChange("Batteries")}
+                            />
+                            <label htmlFor="batteries">Batteries</label>
+                        </div>
+                        <div>
+                            <input
+                                type="checkbox"
+                                id="electrical"
+                                value="Electrical Appliances"
+                                onChange={() => handleCheckboxChange("Electrical Appliances")}
+                            />
+                            <label htmlFor="electrical">Electrical Appliances</label>
+                        </div>
+                        <div>
+                            <input
+                                type="checkbox"
+                                id="mattresses"
+                                value="Mattresses"
+                                onChange={() => handleCheckboxChange("Mattresses")}
+                            />
+                            <label htmlFor="mattresses">Mattresses</label>
+                        </div>
+                        <div>
+                            <input
+                                type="checkbox"
+                                id="plastic"
+                                value="Plastic Bottles and Containers"
+                                onChange={() => handleCheckboxChange("Plastic Bottles and Containers")}
+                            />
+                            <label htmlFor="plastic">Plastic Bottles and Containers</label>
+                        </div>
+                        <div>
+                            <input
+                                type="checkbox"
+                                id="softplastic"
+                                value="Soft Plastic"
+                                onChange={() => handleCheckboxChange("Soft Plastic")}
+                            />
+                            <label htmlFor="softplastic">Soft Plastic</label>
+                        </div>
+                        <div>
+                            <input
+                                type="checkbox"
+                                id="clothing"
+                                value="Clothing and Textile"
+                                onChange={() => handleCheckboxChange("Clothing and Textile")}
+                            />
+                            <label htmlFor="clothing">Clothing and Textile</label>
+                        </div>
+                        <div>
+                            <input
+                                type="checkbox"
+                                id="paint"
+                                value="Paint"
+                                onChange={() => handleCheckboxChange("Paint")}
+                            />
+                            <label htmlFor="paint">Paint</label>
+                        </div>
                     </div>
 
                     <div>
@@ -190,39 +301,6 @@ const MapPage: React.FC = () => {
                             <option value="3206" data-lat="-37.8200" data-lng="144.9556">3206 - Albert Park</option>
                         </select>
                     </div>
-                </div>
-
-                {/* Map container */}
-                <div className="map-container">
-                    <div id='map' className="map"></div>
-                </div>
-
-                {/* Scrollable table container */}
-                <div className="scrollable-table-container">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Centre Name</th>
-                                <th>Address</th>
-                                <th>Waste Type</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {centres
-                                .filter((centre) => {
-                                    const matchesWasteType = selectedWasteType ? centre.waste.waste_type === selectedWasteType : true;
-                                    const matchesPostcode = selectedPostcode ? isWithin3Km(selectedPostcode, centre) : true;
-                                    return matchesWasteType && matchesPostcode;
-                                })
-                                .map((centre) => (
-                                    <tr key={centre.centre_id}>
-                                        <td>{centre.name}</td>
-                                        <td>{centre.address}</td>
-                                        <td>{centre.waste.waste_type}</td>
-                                    </tr>
-                                ))}
-                        </tbody>
-                    </table>
                 </div>
             </div>
 

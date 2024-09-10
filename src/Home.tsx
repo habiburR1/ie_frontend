@@ -21,7 +21,7 @@ const GreenMelbLandingPage: React.FC = () => {
                     <div></div>
                     <div></div>
                     <h1>Welcome to Green Melb</h1>
-                    <p>Your partner in sustainable waste management for a cleaner Melbourne.</p>
+                    <p>Your trusted guide to waste management at HOME! We're here to help you make sense of HOUSEHOLD waste, reduce what you throw away, and make eco-friendly decisions. Whether you're sorting your recyclables, tackling food waste, or curious about the impact of your habits, our platform offers easy-to-follow tips and tools to help you identify and manage different types of waste. Start your journey towards a cleaner, greener HOME today!</p>
                     {/* <button onClick={() => navigateToPage('/get-started')}>
                         Get Started
                     </button> */}
@@ -43,20 +43,6 @@ const GreenMelbLandingPage: React.FC = () => {
                         <h3>Find a Local Recycling Center</h3>
                         <p>Locate the nearest recycling center to dispose of your waste responsibly.</p>
                         <button onClick={() => navigateToPage('/MapPage')}>
-                            Learn More
-                        </button>
-                    </div>
-                    <div className="feature-card">
-                        <h3>Learn About Organic Waste</h3>
-                        <p>Discover what you can do with organic waste to help reduce landfill.</p>
-                        <button onClick={() => navigateToPage('/OrganicWaste')}>
-                            Learn More
-                        </button>
-                    </div>
-                    <div className="feature-card">
-                        <h3>Earn Achievements</h3>
-                        <p>Track your progress and earn badges as you improve your waste management habits.</p>
-                        <button onClick={() => navigateToPage('/achievements')}>
                             Learn More
                         </button>
                     </div>

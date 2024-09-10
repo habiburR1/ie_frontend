@@ -1,0 +1,75 @@
+/* Header Layout */
+.main-header {
+    display: flex;
+    justify-content: flex-start;  /* Align everything to the left */
+    align-items: center;
+    background-color: #4F7942;  /* Dark green background to fit the eco theme */
+    padding: 20px 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;  /* Ensures the header stays on top */
+}
+
+/* Logo Styling */
+.logo {
+    margin-right: 50px;  /* Space between the logo and nav links */
+}
+
+.logo a {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.logo a:hover {
+    color: #00ff00;  /* Green color on hover */
+}
+
+/* Navigation Styling */
+.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: flex-start;  /* Align links to the left */
+    gap: 20px;  /* Space between the navigation links */
+    padding-left: 0;  /* Remove any default padding from the list */
+    font-family: 'Roboto', sans-serif;
+}
+
+.nav-links li {
+    font-size: 1rem;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 2px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 4px;
+}
+
+/* Hover and Active Styles */
+.nav-links a:hover {
+    background-color: #555;  /* Slightly lighter background on hover */
+    color: #00ff00;  /* Green text color on hover */
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+    .main-header {
+        flex-direction: column;
+        align-items: flex-start;  /* Ensure everything stays left-aligned on mobile */
+    }
+
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .nav-links a {
+        display: block;
+        width: 100%;
+    }
+}

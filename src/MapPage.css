@@ -5,6 +5,19 @@ body {
   background-color: #f9f9f9;
 }
 
+.page-layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;  /* Align items to the top */
+}
+
+.main-content {
+  flex: 1;  /* Takes the majority of the space */
+  margin-right: 20px;  /* Space between main content and sidebar */
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
 .page-container {
   max-width: 1200px;  /* Maximum width for the entire page */
   margin: 0 auto;  /* Center the page horizontally */
@@ -14,10 +27,43 @@ body {
   border-radius: 8px;  /* Rounded corners for the content area */
 }
 
+.filter-sidebar {
+  width: 250px;  /* Set a fixed width for the filter section */
+  background-color: #f9f9f9;  /* Background for better visual separation */
+  padding: 15px;
+  border-radius: 8px;  /* Rounded corners for a cleaner look */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Slight shadow for depth */
+  margin-top: 20px;
+}
+
+.checkbox-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;  /* Align the checkboxes and labels */
+  margin-bottom: 20px;
+}
+
+.checkbox-container div {
+  display: flex;
+  align-items: center;  /* Align the checkbox and label vertically */
+  margin-bottom: 10px;  /* Add space between checkboxes */
+  width: 100%;          /* Ensure the full width is used */
+}
+
+.checkbox-container input {
+  margin-right: 10px;   /* Space between checkbox and label */
+}
+
+.checkbox-container label {
+  display: inline-block;   /* Ensure labels are inline with checkboxes */
+  word-wrap: break-word;   /* Allow labels to wrap text if they are too long */
+  flex: 1;                 /* Allow the label to take the remaining space */
+}
+
 .filter-container {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;  /* Align filters to the top of the container */
   width: 100%;  /* Ensure the filter container takes full width */
   max-width: 1200px; /* Limit the width of the filter container */
   margin-bottom: 20px;
@@ -29,6 +75,14 @@ body {
 
 .filter-container select {
   padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+}
+
+select {
+  width: 100%;    /* Ensure the dropdown fills the width of the container */
+  padding: 8px;   /* Padding for the dropdown */
   border-radius: 4px;
   border: 1px solid #ddd;
   font-size: 14px;
@@ -54,7 +108,6 @@ body {
   border-radius: 8px;  /* Rounded corners for the table container */
   padding: 10px;  /* Padding around the table */
 }
-
 table {
   width: 100%;  /* Ensure the table takes the full width of the container */
   border-collapse: collapse;
@@ -75,6 +128,12 @@ thead {
 
 tbody tr:hover {
   background-color: #f1f1f1; /* Light hover effect on table rows */
+}
+
+/* Highlight the selected row in the table */
+.highlight {
+  background-color: #ffff99; /* Light yellow background */
+  font-weight: bold; /* Make the text bold for emphasis */
 }
 
 @media (max-width: 768px) {
