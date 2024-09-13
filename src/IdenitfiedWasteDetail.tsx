@@ -1,5 +1,6 @@
 import React from "react";
-import Header from "./components/Header";
+import Header from "./Header.tsx";
+//import Header from "./components/Header";
 
 
 const IdentifyWasteDetail: React.FC = () => {

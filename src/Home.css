@@ -15,7 +15,7 @@ body {
 /* Hero Section */
 .hero-section {
     background: linear-gradient(rgba(0, 50, 0, 0.7), rgba(0, 50, 0, 0.7)), 
-                url('/build/images/home_bg2.jpg') center/cover no-repeat;
+                url('/public/images/home_bg2.jpg') center/cover no-repeat;
     color: white;
     text-align: center;
     padding: 80px 20px;
