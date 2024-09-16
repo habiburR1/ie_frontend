@@ -9,6 +9,7 @@ import IdentifyWaste from "./IdentifyWaste.tsx";
 import MapPage from "./MapPage.tsx";
 import PlantRecommendation from "./PlantRecommendation.tsx";
 import CompostRatioCalculator from "./CompostRatioCalculator.tsx";
+import WastePrediction from './WastePrediction.tsx';
 import HelloWorld from "./HelloWorld.tsx";
 export default function App() {
   return (
@@ -24,6 +25,7 @@ export default function App() {
             <Route path="/MapPage" element={<MapPage />} />
             <Route path="/PlantRecommendation" element = {<PlantRecommendation />} />
             <Route path="/CompostRatioCalculator" element = {<CompostRatioCalculator />} />
+            <Route path="/WastePrediction" element = {<WastePrediction />} />
             <Route path="/HelloWorld" element = {<HelloWorld />} />
             <Route path="*" element={<NoPage />} />{" "}
             {/* Handles undefined routes */}
