@@ -1,0 +1,113 @@
+/* WastePrediction.css */
+
+/* Apply full height layout with footer sticking to the bottom */
+.full-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Full-height layout to ensure footer stays at the bottom */
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #333;
+    padding-top: 20px;
+  }
+  
+  /* Main content container that stretches to fill available space */
+  .waste-prediction-container {
+    flex: 1; /* This makes the content take up all available vertical space */
+    padding: 40px 20px; /* Add padding for spacing around the form */
+  }
+  
+  .explanation {
+    font-size: 1.1rem;
+    margin: 20px 0;
+    line-height: 1.6;
+    color: #555;
+    text-align: center;
+  }
+  
+  /* Adjust form layout and give spacing */
+  .form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 30px;
+    padding: 0 20px; /* Add padding to keep dropdowns away from the edges */
+  }
+  
+  /* Set width of dropdown labels */
+  .form-label {
+    font-size: 1.2rem;
+    color: #333;
+    width: 22%; /* Adjust width for dropdowns */
+  }
+  
+  .form-select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  /* Center the button and add margin */
+  .form-button {
+    padding: 12px 20px;
+    font-size: 1.2rem;
+    color: white;
+    background-color: #4caf50;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 300px; /* Max width for the button */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  
+  .form-button:hover {
+    background-color: #45a049;
+  }
+  
+  .prediction-result {
+    margin-top: 30px;
+  }
+  
+  .total-waste {
+    font-size: 1.5rem;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  h2 {
+    text-align: center;
+    color: #555;
+  }
+  
+  canvas {
+    max-width: 100%;
+  }
+  
+  /* Footer always at the bottom */
+  footer {
+    flex-shrink: 0;
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+  }
+  
