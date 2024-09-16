@@ -169,7 +169,7 @@ export default function App() {
 
             <div className={styles.headerContainer}>
             <h1 className={`${styles.header4} ${styles.headerSize2}`}>Be a part of the solution today </h1>
-            <button className="my-button">Click to get started</button> 
+            <button className="my-button">Click to get started,</button> 
                      
             </div>
 
