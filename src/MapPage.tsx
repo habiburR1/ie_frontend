@@ -20,6 +20,10 @@ const MapPage: React.FC = () => {
     const rowRefs = useRef<{ [key: number]: HTMLTableRowElement | null }>({}); // Store refs to all table rows
 
     useEffect(() => {
+        document.title = "Map - Green Melb";
+    }, []);
+
+    useEffect(() => {
         // Initialize the map
         const mapInstance = new mapboxgl.Map({
             container: 'map',  // The ID of the div where the map will be rendered
@@ -36,6 +40,7 @@ const MapPage: React.FC = () => {
 
         return () => mapInstance.remove();  // Cleanup on component unmount
     }, []);
+
 
     useEffect(() => {
         // Fetch centres data when the component mounts

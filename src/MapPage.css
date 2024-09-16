@@ -7,14 +7,16 @@ body {
 
 .page-layout {
   display: flex;
-  justify-content: space-between;
+  flex-direction: row; /* Ensure the layout is in a row format */
+  justify-content: flex-start;  /* Align items starting from the left */
   align-items: flex-start;  /* Align items to the top */
 }
 
 .main-content {
-  flex: 1;  /* Takes the majority of the space */
-  margin-right: 20px;  /* Space between main content and sidebar */
-  margin-left: 20px;
+  flex: 1;  /* Take up the remaining space after the sidebar */
+  order: 2; /* Make sure the main content is after the sidebar */
+  margin-right: 20px;
+  margin-left: 0; /* Remove left margin so it aligns with the sidebar */
   margin-top: 20px;
 }
 
@@ -28,11 +30,14 @@ body {
 }
 
 .filter-sidebar {
+  order: 1; /* Ensure the sidebar appears first (on the left) */
   width: 250px;  /* Set a fixed width for the filter section */
   background-color: #f9f9f9;  /* Background for better visual separation */
   padding: 15px;
   border-radius: 8px;  /* Rounded corners for a cleaner look */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Slight shadow for depth */
+  margin-right: 20px;  /* Add margin to the right to create space between sidebar and content */
+  margin-left: 20px; /* You can keep a margin-left if needed */
   margin-top: 20px;
 }
 
@@ -68,6 +73,7 @@ body {
   max-width: 1200px; /* Limit the width of the filter container */
   margin-bottom: 20px;
 }
+
 .filter-container label {
   margin-right: 10px;  /* Space between the label and select box */
   font-weight: bold;  /* Bold label for better visibility */
@@ -108,6 +114,7 @@ select {
   border-radius: 8px;  /* Rounded corners for the table container */
   padding: 10px;  /* Padding around the table */
 }
+
 table {
   width: 100%;  /* Ensure the table takes the full width of the container */
   border-collapse: collapse;
@@ -138,14 +145,14 @@ tbody tr:hover {
 
 @media (max-width: 768px) {
   .page-container {
-      padding: 10px;  /* Reduce padding on smaller screens */
+    padding: 10px;  /* Reduce padding on smaller screens */
   }
 
   .map-container {
-      height: 50vh;  /* Reduce map height on smaller screens */
+    height: 50vh;  /* Reduce map height on smaller screens */
   }
 
   .scrollable-table-container {
-      max-height: 40vh;  /* Increase table height on smaller screens */
+    max-height: 40vh;  /* Increase table height on smaller screens */
   }
 }

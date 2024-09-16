@@ -7,7 +7,11 @@ const Header: React.FC = () => {
   return (
     <header className="main-header">
       <div className="logo">
-        <Link to="/">Green Melb</Link> {/* Make the logo clickable */}
+        <Link to="/">
+          {/* Logo image next to text */}
+          <img src="/images/logo.jpeg" alt="Green Melb Logo" className="logo-image" />
+          Green Melb
+        </Link>
       </div>
       <nav>
         <ul className="nav-links">
@@ -22,15 +26,6 @@ const Header: React.FC = () => {
           </li>
           <li>
             <Link to="/CompostingGuide">Composting Guide</Link>
-          </li>
-          <li>
-            <Link to="/Recyclable">Recyclable</Link>
-          </li>
-          <li>
-            <Link to="/achievements">Your achievements</Link>
-          </li>
-          <li>
-            <Link to="/PlantRecommendation">Plant Recommendation</Link>
           </li>
         </ul>
       </nav>

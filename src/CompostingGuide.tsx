@@ -1,140 +1,161 @@
-import React from 'react';
-import { Link,useNavigate } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { scroller } from 'react-scroll'; // Import react-scroll for smooth scrolling
+import React, { useState, useEffect } from 'react';
+import { Parallax, ParallaxLayer } from '@react-spring/parallax';
+import { useNavigate } from 'react-router-dom'; // Assuming you're using React Router
+import styles from './styles.module.css'; 
+import CompostRatioCalculator from './CompostRatioCalculator.tsx';
+import Header from './Header.tsx';
 
-const CompostingGuide: React.FC = () => {
-  const navigate = useNavigate();
-    const handleScrollTo = (section: string) => {
-        scroller.scrollTo(section, {
-            smooth: true,
-            duration: 500,
-        });
+export default function CompostingTips() {
+  const alignCenter = { display: 'flex', alignItems: 'center' };
+  const [showButton, setShowButton] = useState(false); // To track when to show the button
+  const navigate = useNavigate(); // To navigate to the Plant Recommendation page
+
+  // Function to handle scroll and show the button when the user reaches the bottom
+  const handleScroll = () => {
+    const scrollPosition = window.scrollY + window.innerHeight;
+    const documentHeight = document.documentElement.offsetHeight;
+
+    if (scrollPosition >= documentHeight - 50) { // Check if the user scrolled near the bottom
+      setShowButton(true);
+    } else {
+      setShowButton(false);
+    }
+  };
+
+  useEffect(() => {
+    document.title = "Composte Guide - Green Melb";
+}, []);
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+
+    // Cleanup event listener when component unmounts
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
     };
+  }, []);
 
-    return (
-        <div className="container">
-            <h1>Composting Guide with Organic Waste Produced at Home</h1>
+  // Function to handle button click and navigate to Plant Recommendation page
+  const goToPlantRecommendation = () => {
+    navigate('/PlantRecommendation'); // Adjust the path as needed
+  };
 
-            {/* Scroll Navigation Links */}
-            <nav className="nav">
-                <ul>
-                    <li><button onClick={() => handleScrollTo("step1")}>Step 1</button></li>
-                    <li><button onClick={() => handleScrollTo("step2")}>Step 2</button></li>
-                    <li><button onClick={() => handleScrollTo("step3")}>Step 3</button></li>
-                    <li><button onClick={() => handleScrollTo("step4")}>Step 4</button></li>
-                    <li><button onClick={() => handleScrollTo("step5")}>Step 5</button></li>
-                </ul>
-            </nav>
+  return (
+    <div className={styles.pageContainer}>
+      <Header />
+      <div className={styles.background} />
 
-            <motion.section
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1 }}
-            >
-                <h2>Introduction</h2>
-                <p>Composting is a fantastic way to manage organic waste produced at home and create valuable compost for your garden. This guide will walk you through the steps to set up a compost bin, select materials, and maintain your compost effectively.</p>
-            </motion.section>
+      <div className={styles.contentWrapper}>
+        <Parallax pages={5}>
+          <ParallaxLayer offset={0} speed={0.5} style={{ ...alignCenter, justifyContent: 'center' }}>
+            <p className={styles.scrollText}>
+              Composting is a fantastic way to manage organic waste produced at home and create valuable compost for your garden. 
+              This guide will walk you through the steps to set up a compost bin, select materials, and maintain your compost effectively.
+            </p>
+          </ParallaxLayer>
 
-            <section>
-                <h2>Step-by-Step Guide</h2>
+          <ParallaxLayer sticky={{ start: 1, end: 1.5 }} style={{ ...alignCenter, justifyContent: 'flex-start' }}>
+            <div className={`${styles.card} ${styles.sticky}`}>
+              <p>Step 1: Set up bin</p>
+            </div>
+          </ParallaxLayer>
 
-                {/* Step 1 */}
-                <div id="step1">
-                    <motion.div
-                        className="step"
-                        whileHover={{ scale: 1.05 }}
-                        initial={{ opacity: 0, x: -100 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.5 }}
-                    >
-                        <div className="step-number">Step 1:</div>
-                        <h3>Setting Up Your Compost Bin</h3>
-                        <img src="https://via.placeholder.com/400x200" alt="Compost Bin" className="step-image" />
-                        <p>Choose a suitable location for your compost bin. It should be in a shaded area with good drainage. You can use a commercial compost bin or make your own using wooden pallets, wire mesh, or a simple plastic container.</p>
-                    </motion.div>
-                </div>
+          <ParallaxLayer offset={1} speed={0.5} style={{ ...alignCenter, justifyContent: 'flex-end' }}>
+            <div className={`${styles.card} ${styles.parallax} ${styles.purple}`}>
+              <p>Choose a shaded spot with drainage.</p>
+            </div>
+          </ParallaxLayer>
 
-                {/* Step 2 */}
-                <div id="step2">
-                    <motion.div
-                        className="step"
-                        whileHover={{ scale: 1.05 }}
-                        initial={{ opacity: 0, x: -100 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.6 }}
-                    >
-                        <div className="step-number">Step 2:</div>
-                        <h3>Selecting Materials</h3>
-                        <img src="https://via.placeholder.com/400x200" alt="Composting Materials" className="step-image" />
-                        <p>Compost requires a balance of 'greens' (nitrogen-rich materials) and 'browns' (carbon-rich materials). Greens include fruit and vegetable scraps, coffee grounds, and grass clippings. Browns include dry leaves, cardboard, and paper. Aim for a ratio of 2-3 parts browns to 1 part greens.</p>
-                    </motion.div>
-                </div>
+          <ParallaxLayer offset={1.25} speed={0.75} style={{ ...alignCenter, justifyContent: 'flex-end' }}>
+            <div className={`${styles.card} ${styles.parallax} ${styles.blue}`}>
+              <p>Use a bin or make one with pallets or mesh.</p>
+            </div>
+          </ParallaxLayer>
 
-                {/* Step 3 */}
-                <div id="step3">
-                    <motion.div
-                        className="step"
-                        whileHover={{ scale: 1.05 }}
-                        initial={{ opacity: 0, x: -100 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.7 }}
-                    >
-                        <div className="step-number">Step 3:</div>
-                        <h3>Adding Materials to the Bin</h3>
-                        <img src="https://via.placeholder.com/400x200" alt="Layering Materials" className="step-image" />
-                        <p>Start by adding a layer of coarse materials like twigs or straw at the bottom of the bin. Then, alternate layers of greens and browns, ensuring each layer is relatively even. Avoid adding meat, dairy, and oily foods to prevent odors and pests.</p>
-                    </motion.div>
-                </div>
+          <ParallaxLayer offset={1.5} speed={1} style={{ ...alignCenter, justifyContent: 'flex-end' }}>
+            <div className={`${styles.card} ${styles.parallax} ${styles.green}`}>
+              <p>Start with a layer of twigs or straw.</p>
+            </div>
+          </ParallaxLayer>
 
-                {/* Step 4 */}
-                <div id="step4">
-                    <motion.div
-                        className="step"
-                        whileHover={{ scale: 1.05 }}
-                        initial={{ opacity: 0, x: -100 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.8 }}
-                    >
-                        <div className="step-number">Step 4:</div>
-                        <h3>Maintaining Your Compost</h3>
-                        <img src="https://via.placeholder.com/400x200" alt="Maintaining Compost" className="step-image" />
-                        <p>Turn the compost regularly to aerate it and speed up decomposition. Keep the compost moist but not too wet. If the compost is too dry, add water; if too wet, add more browns to absorb excess moisture.</p>
-                    </motion.div>
-                </div>
+          <ParallaxLayer offset={1.75} speed={1.25} style={{ ...alignCenter, justifyContent: 'flex-end' }}>
+            <div className={`${styles.card} ${styles.parallax} ${styles.green}`}>
+              <p>Ensure good airflow for faster composting.</p>
+            </div>
+          </ParallaxLayer>
 
-                {/* Step 5 */}
-                <div id="step5">
-                    <motion.div
-                        className="step"
-                        whileHover={{ scale: 1.05 }}
-                        initial={{ opacity: 0, x: -100 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.9 }}
-                    >
-                        <div className="step-number">Step 5:</div>
-                        <h3>Harvesting Compost</h3>
-                        <img src="https://via.placeholder.com/400x200" alt="Harvesting Compost" className="step-image" />
-                        <p>After a few months, the compost will become dark, crumbly, and earthy-smelling. This indicates it's ready to use. Remove the finished compost from the bottom of the bin and use it to enrich your garden soil.</p>
-                    </motion.div>
-                </div>
-            </section>
+          <ParallaxLayer sticky={{ start: 2.25, end: 1.5 }} style={{ ...alignCenter, justifyContent: 'flex-start' }}>
+            <div className={`${styles.card} ${styles.sticky2}`}>
+              <p>Step 2: Add Materials</p>
+            </div>
+          </ParallaxLayer>
 
-            <motion.div
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1 }}
-                style={{ marginTop: '20px' }}
-            >
-                <button
-                    onClick={() => navigate('/CompostRatioCalculator')}
-                    style={{ padding: '10px 20px', backgroundColor: '#4CAF50', color: '#fff', border: 'none', cursor: 'pointer' }}
-                >
-                    Go to Compost Ratio Calculator
-                </button>
-            </motion.div>
-        </div>
-    );
-};
+          <ParallaxLayer offset={2} speed={0.5} style={{ ...alignCenter, justifyContent: 'flex-end' }}>
+            <div className={`${styles.card} ${styles.parallax} ${styles.purple}`}>
+              <p>Alternate layers of greens (food scraps) and browns (dry leaves).</p>
+            </div>
+          </ParallaxLayer>
 
-export default CompostingGuide;
+          <ParallaxLayer offset={2.25} speed={0.75} style={{ ...alignCenter, justifyContent: 'flex-end' }}>
+            <div className={`${styles.card} ${styles.parallax} ${styles.blue}`}>
+              <p>Maintain a 2:1 ratio of browns to greens.</p>
+            </div>
+          </ParallaxLayer>
+
+          <ParallaxLayer offset={2.5} speed={1} style={{ ...alignCenter, justifyContent: 'flex-end' }}>
+            <div className={`${styles.card} ${styles.parallax} ${styles.green}`}>
+              <p>Chop materials for quicker breakdown.</p>
+            </div>
+          </ParallaxLayer>
+
+          <ParallaxLayer offset={2.75} speed={1.25} style={{ ...alignCenter, justifyContent: 'flex-end' }}>
+            <div className={`${styles.card} ${styles.parallax} ${styles.green}`}>
+              <p>Avoid meat, dairy, or oily foods.</p>
+            </div>
+          </ParallaxLayer>
+
+          <ParallaxLayer sticky={{ start: 3.25, end: 1.5 }} style={{ ...alignCenter, justifyContent: 'flex-start' }}>
+            <div className={`${styles.card} ${styles.sticky3}`}>
+              <p>Step 3: Maintain & Use</p>
+            </div>
+          </ParallaxLayer>
+
+          <ParallaxLayer offset={3} speed={0.5} style={{ ...alignCenter, justifyContent: 'flex-end' }}>
+            <div className={`${styles.card} ${styles.parallax} ${styles.purple}`}>
+              <p>Turn the pile weekly for aeration.</p>
+            </div>
+          </ParallaxLayer>
+
+          <ParallaxLayer offset={3.25} speed={0.75} style={{ ...alignCenter, justifyContent: 'flex-end' }}>
+            <div className={`${styles.card} ${styles.parallax} ${styles.blue}`}>
+              <p>Keep the compost moist but not soggy.</p>
+            </div>
+          </ParallaxLayer>
+
+          <ParallaxLayer offset={3.5} speed={1} style={{ ...alignCenter, justifyContent: 'flex-end' }}>
+            <div className={`${styles.card} ${styles.parallax} ${styles.green}`}>
+              <p>Add water or browns as needed for balance.</p>
+            </div>
+          </ParallaxLayer>
+
+          <ParallaxLayer offset={3.75} speed={1.25} style={{ ...alignCenter, justifyContent: 'flex-end' }}>
+            <div className={`${styles.card} ${styles.parallax} ${styles.green}`}>
+              <p>Compost is ready when dark and crumbly.</p>
+            </div>
+          </ParallaxLayer>
+
+          <ParallaxLayer offset={4} speed={1.75} style={{ ...alignCenter, justifyContent: 'center' }}>
+            <CompostRatioCalculator />  {/* Calculator component */}
+          </ParallaxLayer>
+
+          {/* Adjusted Text and Button for Plant Recommendation */}
+          <ParallaxLayer offset={4.3} speed={1} style={{ ...alignCenter, justifyContent: 'center' }}>
+              <button className={styles.scrollButton} onClick={goToPlantRecommendation}>
+                Go to Plant Recommendation
+              </button>
+          </ParallaxLayer>
+        </Parallax>
+      </div>
+    </div>
+  );
+}
