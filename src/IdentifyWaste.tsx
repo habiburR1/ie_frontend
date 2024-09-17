@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 // @ts-ignore
 import Header from "./Header.tsx";
 // @ts-ignore
 import Footer from "./Footer.tsx";
+import { useNavigate } from "react-router-dom"; // To navigate to the Map Page and Composting Guide
 import "./IdentifyWaste.css";
 
 const IdentifyWaste: React.FC = () => {
@@ -13,7 +14,12 @@ const IdentifyWaste: React.FC = () => {
   const [classificationResults, setClassificationResults] = useState<string[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-
+  
+  const navigate = useNavigate(); // To navigate to Map Page and Composting Guide
+  useEffect(() => {
+    document.title = "Identify Waste - Green Melb";
+}, []);
+  
   const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {
@@ -219,6 +225,25 @@ const IdentifyWaste: React.FC = () => {
           <div key={classification}>
             <h2>{classification}</h2>
             <p>{classificationInformation[classification]}</p>
+
+            {/* Display the buttons if Organic is present */}
+            {classification === "Organic" && (
+              <>
+                <button
+                  className="map-button"
+                  onClick={() => navigate("/MapPage")}
+                >
+                  View Composting Centers
+                </button>
+
+                <button
+                  className="guide-button"
+                  onClick={() => navigate("/CompostingGuide")}
+                >
+                  View Composting Guide
+                </button>
+              </>
+            )}
           </div>
         ))}
       </div>

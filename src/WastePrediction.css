@@ -1,64 +1,54 @@
-/* WastePrediction.css */
-
-/* Apply full height layout with footer sticking to the bottom */
 .full-page {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Full-height layout to ensure footer stays at the bottom */
+    min-height: 100vh;
     width: 100%;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .title {
+}
+
+.title {
     text-align: center;
     font-size: 2.5rem;
     color: #333;
-    padding-top: 20px;
-  }
-  
-  /* Main content container that stretches to fill available space */
-  .waste-prediction-container {
-    flex: 1; /* This makes the content take up all available vertical space */
-    padding: 40px 20px; /* Add padding for spacing around the form */
-  }
-  
-  .explanation {
-    font-size: 1.1rem;
+    padding: 20px 0;
+}
+
+.waste-prediction-container {
+    flex: 1;
+    padding: 40px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.explanation {
+    font-size: 1.2rem;
     margin: 20px 0;
     line-height: 1.6;
     color: #555;
     text-align: center;
-  }
-  
-  /* Adjust form layout and give spacing */
-  .form {
+}
+
+.form {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    gap: 15px;
     margin-bottom: 30px;
-    padding: 0 20px; /* Add padding to keep dropdowns away from the edges */
-  }
-  
-  /* Set width of dropdown labels */
-  .form-label {
-    font-size: 1.2rem;
-    color: #333;
-    width: 22%; /* Adjust width for dropdowns */
-  }
-  
-  .form-select {
+}
+
+.form-group {
+    width: 48%;
+    margin-bottom: 20px;
+}
+
+.form-select {
     width: 100%;
     padding: 10px;
     margin-top: 5px;
     font-size: 1rem;
     border: 1px solid #ccc;
     border-radius: 5px;
-  }
-  
-  /* Center the button and add margin */
-  .form-button {
+}
+
+.form-button {
     padding: 12px 20px;
     font-size: 1.2rem;
     color: white;
@@ -66,48 +56,49 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 20px;
     width: 100%;
-    max-width: 300px; /* Max width for the button */
+    max-width: 200px;
+    margin: 20px auto 0 auto;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
     text-align: center;
-  }
-  
-  .form-button:hover {
+}
+
+.form-button:hover {
     background-color: #45a049;
-  }
-  
-  .prediction-result {
+}
+
+.prediction-result {
     margin-top: 30px;
-  }
-  
-  .total-waste {
+}
+
+.total-waste {
     font-size: 1.5rem;
     color: #333;
     text-align: center;
     margin-bottom: 20px;
-  }
-  
-  h2 {
-    text-align: center;
-    color: #555;
-  }
-  
-  canvas {
+}
+
+canvas {
     max-width: 100%;
-  }
-  
-  /* Footer always at the bottom */
-  footer {
+    height: 1000px; /* Increase height of the graph for better visibility */
+    margin: 0 auto;
+}
+
+
+footer {
     flex-shrink: 0;
     background-color: #333;
     color: white;
-    padding: 10px 0;
+    padding: 10px;
     text-align: center;
     width: 100%;
     position: relative;
     bottom: 0;
-  }
-  
+}
+
+.hover-text {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #555;
+    margin-top: 10px;
+}

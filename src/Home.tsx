@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+
 import { useNavigate } from 'react-router-dom';
 import "./Home.css";
 // @ts-ignore
@@ -6,8 +7,11 @@ import Header from "./Header.tsx";
 
 
 const GreenMelbLandingPage: React.FC = () => {
+    
     const navigate = useNavigate();
-
+    useEffect(() => {
+        document.title = "Home - Green Melb";
+    }, []);
     const navigateToPage = (path: string) => {
         navigate(path);
     };
@@ -21,7 +25,7 @@ const GreenMelbLandingPage: React.FC = () => {
                     <div></div>
                     <div></div>
                     <h1>Welcome to Green Melb</h1>
-                    <p>Your trusted guide to waste management at HOME! We're here to help you make sense of HOUSEHOLD waste, reduce what you throw away, and make eco-friendly decisions. Whether you're sorting your recyclables, tackling food waste, or curious about the impact of your habits, our platform offers easy-to-follow tips and tools to help you identify and manage different types of waste. Start your journey towards a cleaner, greener HOME today!</p>
+                    <p>Your guide to managing household waste! We help you reduce waste and make eco-friendly choices with simple tips and tools for recycling, food waste, and more. Start your journey to a greener home today!</p>
                     {/* <button onClick={() => navigateToPage('/get-started')}>
                         Get Started
                     </button> */}
@@ -34,16 +38,16 @@ const GreenMelbLandingPage: React.FC = () => {
                 <div className="features-grid">
                     <div className="feature-card">
                         <h3>Identify Your Waste</h3>
-                        <p>Not sure what goes where? Start by identifying the type of waste you have.</p>
+                        <p>Find out if your waste is Recyclable, Organic or E-Waste</p>
                         <button onClick={() => navigateToPage('/identifyWaste')}>
-                            Learn More
+                            Try it
                         </button>
                     </div>
                     <div className="feature-card">
-                        <h3>Find a Local Recycling Center</h3>
-                        <p>Locate the nearest recycling center to dispose of your waste responsibly.</p>
-                        <button onClick={() => navigateToPage('/MapPage')}>
-                            Learn More
+                        <h3>Calculate Monthly Waste</h3>
+                        <p>Monthly Estimation of Average's Person Waste.</p>
+                        <button onClick={() => navigateToPage('/WastePrediction')}>
+                            Find Out
                         </button>
                     </div>
                 </div>

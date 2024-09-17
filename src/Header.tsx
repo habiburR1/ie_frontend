@@ -7,7 +7,11 @@ const Header: React.FC = () => {
   return (
     <header className="main-header">
       <div className="logo">
-        <Link to="/">Green Melb</Link> {/* Make the logo clickable */}
+        <Link to="/">
+          {/* Logo image next to text */}
+          <img src="/images/logo.jpeg" alt="Green Melb Logo" className="logo-image" />
+          Green Melb
+        </Link>
       </div>
       <nav>
         <ul className="nav-links">
