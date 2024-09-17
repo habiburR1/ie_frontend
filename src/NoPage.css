@@ -1,6 +1,6 @@
 .header {
     height: 30%;
-    margin: 0 auto; /* Center the header horizontally */
+  
     padding: 30px; /* Add padding for spacing */
     background-color: #555555; /* Light grey background */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional shadow for a slight lift effect */

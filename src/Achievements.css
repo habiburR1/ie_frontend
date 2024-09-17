@@ -126,15 +126,34 @@ parallax-container {
   transition: transform 0.3s ease, color 0.3s ease;
 }
 .my-button {
-  position: fixed; 
-  bottom: 220px; 
-  right: 45%; 
-  background-color: #38d614;
-  color: white;
-  border-radius: 5px;
-  padding: 10px 20px;
-  font-size: 1rem;
-  cursor: pointer;
+  position: fixed;
+  bottom: 200px; /* Adjusted for better placement */
+  left: 42%;  /* Adjusted for better placement */
+  background-color: #d63714; /* Bright green background */
+  font-family: monospace;
+  color: white; /* White text */
+  border-radius: 50px; /* Fully rounded corners for a pill shape */
+  padding: 15px 30px; /* Larger padding for a bigger button */
+  font-size: 1.2rem; /* Increased font size for better readability */
+  font-weight: bold; /* Bold text for emphasis */
+  cursor: pointer; /* Pointer cursor on hover */
   z-index: 1000; /* Ensure it is above other elements */
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease; /* Smooth transition for all properties */
+  border: none; /* Remove default border */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for a modern look */
+  text-transform: uppercase; /* Uppercase text for a stylish appearance */
 }
+
+/* Hover effects */
+.my-button:hover {
+  background-color: #2fbe0b; /* Darker green on hover */
+  transform: translateY(-3px); /* Slight lift effect on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* More pronounced shadow on hover */
+}
+
+/* Focus state */
+.my-button:focus {
+  outline: none; /* Remove default outline */
+  box-shadow: 0 0 0 3px rgba(56, 214, 20, 0.5); /* Focus ring for accessibility */
+}
+
