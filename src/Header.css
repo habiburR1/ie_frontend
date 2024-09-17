@@ -3,12 +3,12 @@
     display: flex;
     justify-content: flex-start;  /* Align everything to the left */
     align-items: center;
-    background-color: #4F7942;  /* Dark green background to fit the eco theme */
+    background-color: #4F7942;  
     padding: 20px 40px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
-    z-index: 1000;  /* Ensures the header stays on top */
+    z-index: 1000; 
 }
 
 /* Logo Styling */

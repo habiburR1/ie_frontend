@@ -12,6 +12,8 @@ import CompostingTips from "./CompostingTips.tsx";
 
 
 
+import WastePrediction from './WastePrediction.tsx';
+import HelloWorld from "./HelloWorld.tsx";
 export default function App() {
   return (
       <div className="App">
@@ -28,6 +30,8 @@ export default function App() {
             <Route path="/CompostRatioCalculator" element = {<CompostRatioCalculator />} />
             <Route path="/CompostingTips" element = {<CompostingTips />} />
             
+            <Route path="/WastePrediction" element = {<WastePrediction />} />
+            <Route path="/HelloWorld" element = {<HelloWorld />} />
             <Route path="*" element={<NoPage />} />{" "}
             {/* Handles undefined routes */}
           </Routes>

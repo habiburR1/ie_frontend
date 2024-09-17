@@ -18,6 +18,7 @@
   margin-bottom: 20px;
 }
 
+
 .drop-zone {
   display: flex;
   flex-direction: column;
@@ -225,3 +226,15 @@
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+.full-page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Full viewport height */
+}
+
+.identify-waste-content {
+  flex: 1; /* Make the content section grow and push the footer down */
+  padding: 20px;
+}
+
