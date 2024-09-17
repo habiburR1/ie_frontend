@@ -1,3 +1,251 @@
+.background {
+  background: linear-gradient(#79d87e, #d8d7c8);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.scrollText {
+  font-family: monospace;
+  font-size: 3rem;
+  font-weight:bolder;
+  z-index: 1;
+}
+
+
+.card {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.25rem;
+  height: 10rem;
+  width: 25%;
+  text-align: center;
+  border-radius: 10px;
+  
+}
+
+.parallax {
+  margin-right: 15%;
+}
+
+.sticky {
+  margin-left: 15%;
+  background-color: #ff6d6d;
+  font-family: monospace;
+  font-size: 2rem;
+  font-weight:bolder;
+}
+.sticky2 {
+  margin-left: 15%;
+  background-color: #6deeff;
+  font-family: monospace;
+  font-size: 2rem;
+  font-weight:bolder;
+}
+.sticky3 {
+  margin-left: 15%;
+  background-color: #a4be2e;
+  font-family: monospace;
+  font-size: 2rem;
+  font-weight:bolder;
+}
+.blue {
+  background-color: #5b65ad;
+  color: white;
+}
+
+.purple {
+  background-color: #9d65d0;
+}
+
+.green {
+  background-color: #65d065;
+}
+
+
+@media (max-width: 750px) {
+  .card {
+    width: 40%;
+  }
+
+  .parallax {
+    margin-right: 1.5rem;
+  }
+
+  .sticky {
+    margin-left: 1.5rem;
+  }
+}
+/* Ensures full height and width for the parallax container */
+.parallax-container {
+width: 100%;
+height: 100%;
+position: relative;
+}
+
+/* General styles for headers */
+.header1 {
+width: 100%;
+height: 22%;
+color: white;
+text-shadow: 2px 2px 4px #000000;
+}
+
+.header2 {
+width: 45%;
+height: 90%;
+}
+
+.header3 {
+width: 100%;
+height: 140%;
+
+}
+.header4 {
+width: 100%;
+height: 185%;
+font-size: 3rem;
+}
+
+
+
+.header.green {
+color: #4caf50; /* Green text */
+}
+
+.header.red {
+color: #f44336; /* Red text */
+}
+
+.header.blue {
+color: #2196f3; /* Blue text */
+}
+
+/* Hover effect to slightly change text color */
+.header:hover {
+color: #ddd; /* Light grey text on hover */
+}
+
+
+.header-container {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+background-color: rgba(0, 0, 0, 0.5); 
+padding: 10px;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.headerSize{
+position: absolute;
+display: flex;
+align-items: center;
+justify-content: center;
+text-align: center;
+color: #000000;  
+font-weight: bold;
+z-index: 10; /* Ensures header is above other elements */
+transition: transform 0.3s ease, color 0.3s ease;
+font-family: monospace;
+  font-size: 6rem;
+  font-weight:bolder;
+  
+}
+.headerSize1{
+position: absolute;
+display: flex;
+align-items: center;
+justify-content: center;
+text-align: center; 
+font-weight: bold;
+z-index: 10; /* Ensures header is above other elements */
+transition: transform 0.3s ease, color 0.3s ease;
+font-family: monospace;
+  font-size: 4rem;
+  font-weight:bolder;
+  
+}
+.scrollHeader1{
+  color: #43b306; 
+  position: absolute;
+display: flex;
+align-items: center;
+justify-content: center;
+text-align: center; 
+font-weight: bold;
+z-index: 10; /* Ensures header is above other elements */
+transition: transform 0.3s ease, color 0.3s ease;
+font-family: monospace;
+  font-size: 4rem;
+  font-weight:bolder;
+
+}
+
+.scrollHeader2{
+  color: #b10d0d; 
+  position: absolute;
+display: flex;
+align-items: center;
+justify-content: center;
+text-align: center; 
+font-weight: bold;
+z-index: 10; /* Ensures header is above other elements */
+transition: transform 0.3s ease, color 0.3s ease;
+font-family: monospace;
+  font-size: 4rem;
+  font-weight:bolder;
+  
+}
+.scrollHeader3{
+  color: #ce0b0b;
+  position: absolute;
+display: flex;
+align-items: center;
+justify-content: center;
+text-align: center; 
+font-weight: bold;
+z-index: 10; /* Ensures header is above other elements */
+transition: transform 0.3s ease, color 0.3s ease;
+font-family: monospace;
+  font-size: 4rem;
+  font-weight:bolder;
+}
+.header1Text {
+font-size: 2rem;
+color: #fff; 
+text-align: center; 
+margin-top: 10px; 
+width: 100%;
+height: 25%;
+}
+.headerSize2{
+position: absolute;
+display: flex;
+align-items: center;
+justify-content: center;
+text-align: center;
+color: #121212;  
+font-weight: bold;
+z-index: 10; /* Ensures header is above other elements */
+transition: transform 0.3s ease, color 0.3s ease;
+font-family: monospace;
+  font-size: 2rem;
+  font-weight:bolder;
+  
+}
+
+.MelbText{
+width: 130%;
+height: 90%;
+
+}
+
 /* Background settings */
 .background {
     background: linear-gradient(#79d87e, #d8d7c8);

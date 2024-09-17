@@ -27,6 +27,15 @@ const Header: React.FC = () => {
           <li>
             <Link to="/CompostingGuide">Composting Guide</Link>
           </li>
+          <li>
+            <Link to="/CompostingTips">Composting Tips</Link>
+          </li>
+          <li>
+            <Link to="/achievements">Your achievements</Link>
+          </li>
+          <li>
+            <Link to="/PlantRecommendation">Plant Recommendation</Link>
+          </li>
         </ul>
       </nav>
     </header>

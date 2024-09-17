@@ -1,0 +1,17 @@
+.header {
+    height: 30%;
+  
+    padding: 30px; /* Add padding for spacing */
+    background-color: #555555; /* Light grey background */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional shadow for a slight lift effect */
+    text-align: center; /* Center text and inline elements */
+    position: relative; /* Ensure header can be properly positioned */
+    font-family: monospace;
+    font-size: 4rem;
+  }
+
+  .text{
+    font-family: monospace;
+    font-size: 1.5rem;
+    padding: 3px;
+  }

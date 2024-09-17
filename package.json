@@ -6,6 +6,7 @@
   "main": "src/index.tsx",
   "dependencies": {
     "@react-spring/parallax": "^9.7.4",
+    "@react-spring/web": "^9.7.4",
     "axios": "^1.7.7",
     "chart.js": "^4.4.4",
     "framer-motion": "^11.5.4",
@@ -17,6 +18,7 @@
     "react-router-dom": "^6.26.1",
     "react-scripts": "^5.0.1",
     "react-scroll": "^1.9.0",
+    "react-spring": "^9.7.4",
     "webpack-dev-server": "^4.7.3"
   },
   "devDependencies": {

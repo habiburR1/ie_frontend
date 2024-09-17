@@ -1,0 +1,159 @@
+.rotate-15 {
+  transform: rotate(15deg);
+  transform-origin: center center;
+}
+
+.rotate-negative-10 {
+  transform: rotate(-10deg);
+  transform-origin: center center;
+}
+
+.rotate-30 {
+  transform: rotate(30deg);
+  transform-origin: center center;
+}
+
+.rotate-negative-25 {
+  transform: rotate(-25deg);
+  transform-origin: center center;
+}
+
+.rotate-negative-55 {
+  transform: rotate(-55deg);
+  transform-origin: center center;
+}
+
+.rotate-45 {
+  transform: rotate(45deg);
+  transform-origin: center center;
+}
+
+.rotate-75 {
+  transform: rotate(75deg);
+  transform-origin: center center;
+}
+
+.rotate-125 {
+  transform: rotate(125deg);
+  transform-origin: center center;
+}
+
+.rotate-220 {
+  transform: rotate(125deg);
+  transform-origin: center center;
+}
+
+.rotate-145 {
+  transform: rotate(125deg);
+  transform-origin: center center;
+}
+.card {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.25rem;
+  height: 10rem;
+  width: 25%;
+  text-align: center;
+  border-radius: 10px;
+  
+}
+
+parallax-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* General styles for headers */
+.header {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  color: #fff; /* White text color by default */
+  font-size: 2em; /* Adjust font size as needed */
+  font-weight: bold;
+  z-index: 10; /* Ensures header is above other elements */
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Specific header color styles */
+.header.green {
+  color: #4caf50; /* Green text */
+}
+
+.header.red {
+  color: #f44336; /* Red text */
+}
+
+.header.blue {
+  color: #2196f3; /* Blue text */
+}
+
+
+.header:hover {
+  color: #ddd; 
+}
+
+
+.header-container {
+  position: fixed; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); 
+}
+.scrollText {
+  font-family: monospace;
+  font-size: 1.5rem; 
+  font-weight: bolder;
+  color: #121212;  
+  text-align: center; 
+  margin-top: 15px; 
+  width: 100%;
+  height: 35%;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10; 
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+.my-button {
+  position: fixed;
+  bottom: 200px; /* Adjusted for better placement */
+  left: 42%;  /* Adjusted for better placement */
+  background-color: #d63714; /* Bright green background */
+  font-family: monospace;
+  color: white; /* White text */
+  border-radius: 50px; /* Fully rounded corners for a pill shape */
+  padding: 15px 30px; /* Larger padding for a bigger button */
+  font-size: 1.2rem; /* Increased font size for better readability */
+  font-weight: bold; /* Bold text for emphasis */
+  cursor: pointer; /* Pointer cursor on hover */
+  z-index: 1000; /* Ensure it is above other elements */
+  transition: all 0.3s ease; /* Smooth transition for all properties */
+  border: none; /* Remove default border */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for a modern look */
+  text-transform: uppercase; /* Uppercase text for a stylish appearance */
+}
+
+/* Hover effects */
+.my-button:hover {
+  background-color: #2fbe0b; /* Darker green on hover */
+  transform: translateY(-3px); /* Slight lift effect on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* More pronounced shadow on hover */
+}
+
+/* Focus state */
+.my-button:focus {
+  outline: none; /* Remove default outline */
+  box-shadow: 0 0 0 3px rgba(56, 214, 20, 0.5); /* Focus ring for accessibility */
+}
+
