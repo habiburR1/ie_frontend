@@ -28,7 +28,7 @@ const GreenMelbLandingPage: React.FC = () => {
                     <p>Your guide to managing household waste! We help you reduce waste and make eco-friendly choices with simple tips and tools for recycling, food waste, and more. Start your journey to a greener home today!</p>
                     {/* <button onClick={() => navigateToPage('/get-started')}>
                         Get Started
-                    </button> */}
+                    </buttonn> */}
                 </div>
       
             </section>
