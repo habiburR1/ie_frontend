@@ -1,180 +1,111 @@
-/* General Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Container styles */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center vertically */
+  align-items: center; /* Center horizontally */
+  height: 100vh; /* Full viewport height */
+  padding: 0 px; /* Optional padding for smaller screens */
 }
 
-body {
-    font-family: 'Roboto', sans-serif;
-    line-height: 1.6;
-    color: #333;
-    background-color: #f4f4f4;
+/* Style for the main heading */
+.main-heading {
+  font-size: 10rem; 
+  font-family: monospace; 
+  color: #070606; 
+  margin: 0; /* Remove default margin */
+  text-align: center; /* Center text horizontally */
+  
 }
 
-/* Hero Section */
-.hero-section {
-    background: linear-gradient(rgba(0, 50, 0, 0.7), rgba(0, 50, 0, 0.7)), 
-                url('/public/images/home_bg2.jpg') center/cover no-repeat;
-    color: white;
-    text-align: center;
-    padding: 80px 20px;
-    position: relative;
-    background-attachment: fixed;  /* Creates a parallax effect */
+/* Style for the call-to-action button */
+.cta-button {
+  padding: 15px 30px; 
+  font-size: 1.2rem; 
+  font-family: monospace; 
+  color: #fff;
+  background-color: blue;
+  border: none; 
+  border-radius: 5px; 
+  cursor: pointer; 
+  transition: background-color 0.3s ease; 
+  margin-top: 20px;
+  pointer-events: auto;
+  position: relative;
+ 
+  
 }
 
-.hero-content h1 {
-    font-size: 3.5rem;
-    margin-bottom: 20px;
-    font-weight: 700;
+.cta-button:hover {
+  background-color: #40dd19; 
+}
+
+/* Cursor dot animation styling (if needed) */
+.cursor-dot {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: blue;
+  border-radius: 50%;
+  pointer-events: none; /* Ensure the dot does not interfere with clicking elements */
+  transform: translate(-50%, -50%); /* Center the dot */
+  z-index: 9999; /* Keep the cursor dot on top of other elements */
+}
+
+.info-text{
+    font-family: monospace;
+    font-size: 2rem;
+    
+}
+
+.slider-text{
+    font-family: monospace;
+    font-size: 5rem;
     color: #fff;
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);  /* Increased shadow for better contrast */
+    padding: 5%;
 }
-
-.hero-content p {
-    font-size: 1.25rem;
-    margin-bottom: 40px;
-    color: #f0f0f0;
-    max-width: 700px;
-    margin: 0 auto;
-    line-height: 1.8;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);  /* Shadow for readability */
-}
-
-.hero-content button {
-    background-color: #fff;
-    color: #006400;
-    border: none;
-    padding: 14px 28px;
-    font-size: 1.1rem;
-    border-radius: 6px;
-    cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-}
-
-.hero-content button:hover {
-    background-color: #e0e0e0;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-}
-
-.hero-image img {
-    width: 100%;
-    max-width: 400px;
-    margin-top: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* Features Section */
-.features-section {
-    background-color: #fff;
-    padding: 60px 20px;
-    text-align: center;
-}
-
-.features-section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 40px;
-    color: #006400;
-    font-weight: 600;
-}
-
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.feature-card {
-    background-color: #f9f9f9;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-
-.feature-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-}
-
-.feature-card h3 {
-    font-size: 1.75rem;
-    color: #333;
-    margin-bottom: 20px;
-    font-weight: 600;
-}
-
-.feature-card p {
-    font-size: 1.1rem;
-    margin-bottom: 30px;
-    color: #555;
-    line-height: 1.7;
-}
-
-.feature-card button {
-    background-color: #006400;
+.slider-text-small{
+    font-family: monospace;
+    font-size: 1.5rem;
     color: #fff;
-    border: none;
-    padding: 12px 24px;
-    font-size: 1.1rem;
-    border-radius: 6px;
-    cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease;
+    padding: 5%;
 }
 
-.feature-card button:hover {
-    background-color: #004d00;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-}
-
-/* About Section */
-.about-section {
-    background-color: #f4f4f4;
-    padding: 60px 20px;
-    text-align: center;
-}
-
-.about-section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 30px;
-    color: #006400;
-    font-weight: 600;
-}
-
-.about-section p {
-    font-size: 1.25rem;
-    color: #555;
-    max-width: 900px;
-    margin: 0 auto;
-    line-height: 1.8;
-}
-
-/* Footer */
-.footer {
-    background-color: #006400;
-    color: #fff;
-    padding: 30px;
-    text-align: center;
-    margin-top: 60px;
-}
-
-.footer nav a {
-    color: #fff;
-    margin: 0 12px;
-    text-decoration: none;
-    font-size: 1rem;
-    transition: color 0.3s ease;
-}
-
-.footer nav a:hover {
-    text-decoration: underline;
-    color: #cce7cc;
-}
+.steps-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Space between each step */
+    padding: 20px; /* Padding around the container */
+    max-width: 800px; /* Limit width to prevent text from stretching too wide */
+    margin: 0 auto; /* Center container horizontally */
+  }
+  
+  .step {
+    font-size: 1.5rem; /* Font size for the step text */
+    font-weight: bold; /* Make the text bold */
+    background: #f9f9f9; /* Light background color */
+    color: #333; /* Dark text color */
+    padding: 15px; /* Padding inside each step */
+    border-left: 6px solid gold; /* Gold border on the left */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+    text-decoration: none; /* Remove underline from links */
+    display: block; /* Make the entire link clickable */
+  }
+  
+  .step:hover {
+    background-color: #eaf7e0; /* Slightly different background color on hover */
+    transform: translateY(-3px); /* Lift effect on hover */
+  }
+  
+  /* Optional: Responsive design */
+  @media (max-width: 600px) {
+    .step {
+      font-size: 1.2rem; /* Slightly smaller font size on small screens */
+      padding: 10px; /* Reduced padding */
+    }
+  }
+  
+  
+  

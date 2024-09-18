@@ -1,5 +1,23 @@
+/* Ensure the footer is not fixed or absolute */
 .footer {
-    background-color: #006400;
-    z-index: 2;
-    
-}
+    background-color: white; /* White background */
+    color: black; /* Black text */
+    padding: 20px; /* Padding for spacing */
+    border-top: 2px solid #333; /* Small line on top to separate */
+    text-align: center; /* Center the text */
+    z-index: 2; /* Ensure it is above other elements if needed */
+    position: relative; /* Ensure the z-index is effective */
+    margin-top: 20px; /* Space between the content and footer */
+  }
+  
+ 
+  .container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .footer {
+    margin-top: auto; 
+  }
+  

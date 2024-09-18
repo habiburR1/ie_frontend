@@ -60,7 +60,7 @@
 }
 
 .purple {
-  background-color: #9d65d0;
+  background-color: #2d2a30;
 }
 
 .green {
@@ -108,8 +108,9 @@ height: 140%;
 }
 .header4 {
 width: 100%;
-height: 185%;
+height: 250%;
 font-size: 3rem;
+margin-top: 50px;
 }
 
 
@@ -148,13 +149,15 @@ display: flex;
 align-items: center;
 justify-content: center;
 text-align: center;
-color: #000000;  
-font-weight: bold;
 z-index: 10; /* Ensures header is above other elements */
 transition: transform 0.3s ease, color 0.3s ease;
 font-family: monospace;
-  font-size: 6rem;
   font-weight:bolder;
+  font-size: 10rem; 
+  font-family: monospace; 
+  color: #070606; 
+  margin: 0; /* Remove default margin */
+  text-align: center; /* Center text horizontally */
   
 }
 .headerSize1{
@@ -491,3 +494,5 @@ height: 90%;
     height: 90%;
   }
   
+
+

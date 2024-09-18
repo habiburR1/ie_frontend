@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Bar } from 'react-chartjs-2';
-import { Chart, BarElement, CategoryScale, LinearScale, Title, Tooltip, Legend } from 'chart.js';
+//import { Bar } from 'react-chartjs-2';
+//import { Chart, BarElement, CategoryScale, LinearScale, Title, Tooltip, Legend } from 'chart.js';
 // @ts-ignore
 import Header from './Header.tsx';
 // @ts-ignore
 import Footer from './Footer.tsx';
 import './WastePrediction.css';
 
-Chart.register(BarElement, CategoryScale, LinearScale, Title, Tooltip, Legend);
+//Chart.register(BarElement, CategoryScale, LinearScale, Title, Tooltip, Legend);
 
 const WastePrediction: React.FC = () => {
   const [formData, setFormData] = useState({

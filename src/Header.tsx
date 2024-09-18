@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./GlobalStyles.css"; // Assuming this file exists for global styles
 import "./Header.css"; // New CSS file for header styles
 
 const Header: React.FC = () => {
