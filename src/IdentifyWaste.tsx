@@ -19,6 +19,8 @@ const IdentifyWaste: React.FC = () => {
   useEffect(() => {
     document.title = "Identify Waste - Green Melb";
 }, []);
+
+
   
   const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -111,7 +113,7 @@ const IdentifyWaste: React.FC = () => {
     <div className="full-page-container">
       <Header />
       <div className="identify-waste-content">
-        <h1 className="identify-waste-title">Identify Waste</h1>
+        <h1 className="identify-waste-title">Understand your waste</h1>
         <form onSubmit={handleSubmit} className="identify-waste-form">
           <div
             className="drop-zone"

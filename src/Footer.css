@@ -1,7 +1,7 @@
 /* Ensure the footer is not fixed or absolute */
 .footer {
-    background-color: white; /* White background */
-    color: black; /* Black text */
+    background-color: rgb(15, 0, 0); /* White background */
+    color: rgb(29, 3, 3); /* Black text */
     padding: 20px; /* Padding for spacing */
     border-top: 2px solid #333; /* Small line on top to separate */
     text-align: center; /* Center the text */
